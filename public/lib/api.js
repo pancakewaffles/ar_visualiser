@@ -18,7 +18,7 @@ function load_mesh(url,el){
     // TODO: Figure out a way to reposition meshes side by side.
     document.querySelector('a-scene').systems['master-controller']
            .recalculate_position();
-    load_color_bar(el.getAttribute('data-parent'));
+    load_color_bar();
     
   },
     //onProgress
@@ -307,11 +307,11 @@ function create_notification(msg){
 function load_color_bar(){
   let VMIN = 0.5 , VMAX = 0.8;
   if(!document.querySelector('a-entity#colorbar').hasChildNodes()){
-    create_color_bar(VMIN,VMAX,);
+    create_color_bar(VMIN,VMAX);
   }
 }
 
-function create_color_bar(vMin,vMax,task_id){
+function create_color_bar(vMin,vMax){
     let fake_data = Array(20).fill(0)
     let colorscale = d3.scaleSequential(d3.interpolateSpectral);
 	        colorscale.domain([0,fake_data.length]);
