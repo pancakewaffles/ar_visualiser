@@ -147,19 +147,6 @@ AFRAME.registerSystem('master-controller', {
   },
   recalculate_position:function(){
     let xOffset = this.calculate_avg_mid();
-    /*
-    Object.keys(this.mid_pts_dict).forEach(function(entity_id){
-        if(this.get_visibility(entity_id)){
-          let el = document.querySelector('#'+entity_id);
-          let old_pos_x = this.mid_pts_dict[entity_id];
-          console.log("original pos: " + old_pos_x);
-          el.object3D.position.set(old_pos_x - xOffset , el.object3D.position.y , el.object3D.position.z);
-          let new_pos = el.object3D.position;
-          console.log("new pos: " + new_pos.x);
-        }
-      });*/
-    
-    
     for(let i=0;i<this.meshes_info_list.length;i++){
       let el = document.querySelector('#'+this.meshes_info_list[i]['entity_id']);
       if(this.get_visibility(el.getAttribute('id'))){
