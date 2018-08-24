@@ -3,7 +3,9 @@ AFRAME.registerComponent('info-gatherer',{
     if(document.querySelector('.content_connection')){
       if(document.querySelector('a-scene').systems['network-controller'].is_connected()){
         document.querySelector('.content_connection').innerHTML='<h5>Your Connection</h5>'
-                              +'<span class="new badge green" style="float:left" data-badge-caption="Connected!"></span><br />';
+                              +'<span class="new badge green" style="float:left" data-badge-caption="Connected!"></span><p>&nbspand you are in room '
+                              +document.querySelector('a-scene').getAttribute('networked-scene').room;
+                              +'</p>';
       }
       else{
         document.querySelector('.content_connection').innerHTML='<h5>Your Connection</h5>'
