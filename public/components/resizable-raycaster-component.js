@@ -3,7 +3,7 @@ AFRAME.registerComponent('resizable-raycaster',{
     let sceneEl = document.querySelector('a-scene');
     let raycasterEl = sceneEl.querySelector('[raycaster]');
     raycasterEl.addEventListener('raycaster-intersection',function(event){
-        M.toast({html:"HIT SOMETHING"});    
+        //M.toast({html:"HIT SOMETHING"});    
       });
     document.body.addEventListener("mousedown", function(evt){ //fugly fix
       let sceneEl = document.querySelector('a-scene');
@@ -13,7 +13,7 @@ AFRAME.registerComponent('resizable-raycaster',{
       raycasterEl.setAttribute('cursor','rayOrigin:mouse');
       raycasterEl.setAttribute('raycaster','objects:a-rounded;near:0;far:30');
       raycasterEl.addEventListener('raycaster-intersection',function(event){
-        M.toast({html:"HIT SOMETHINGc"});    
+        //M.toast({html:"HIT SOMETHINGc"});    
       });
       sceneEl.appendChild(raycasterEl);
     });
