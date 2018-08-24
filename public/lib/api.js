@@ -106,47 +106,14 @@ function create_settings(){
   let buttonContainer = document.createElement('div');
   let buttonElement = document.createElement('a');
   let buttonIcon = document.createElement('i');
-  buttonContainer.className = 'fixed-action-btn';
   buttonIcon.className = 'large material-icons blue-text text-accent-4';
-  buttonIcon.innerHTML = 'settings';
-  buttonElement.className = 'waves-dark waves-effect btn-floating white ';
+  buttonIcon.innerHTML = 'info';
+  buttonElement.className = 'waves-dark waves-effect btn-floating white modal-trigger';
+  buttonElement.setAttribute('data-target','modal_info');
   buttonContainer.id = 'settings-button';
   buttonElement.appendChild(buttonIcon);
   buttonContainer.appendChild(buttonElement);
   document.body.appendChild(buttonContainer);
-  
-  // List of buttons in floating action buttons. Currently consists of two buttons: share-button and info-button
-  let ul = document.createElement('ul');
-  let li_share = document.createElement('li');
-  let li_info = document.createElement('li');
-  
-  // li_share
-  let li_share_a = document.createElement('a');
-  let li_share_i = document.createElement('i');
-  li_share_i.className = 'material-icons blue-text text-accent-4';
-  li_share_i.innerHTML = 'group_add';
-  li_share_a.className = 'waves-dark waves-effect btn-floating white';
-  li_share_a.appendChild(li_share_i);
-  li_share.appendChild(li_share_a);
-  li_share.addEventListener('click',function(evt){
-    copyLink();
-  });
-  
-  // li_info
-  let li_info_a = document.createElement('a');
-  let li_info_i = document.createElement('i');
-  li_info_i.className = 'large material-icons blue-text text-accent-4';
-  li_info_i.innerHTML = 'info';
-  li_info_a.className = 'waves-dark waves-effect btn-floating white modal-trigger';
-  li_info_a.setAttribute('data-target','modal_info');
-  li_info_a.appendChild(li_info_i);
-  li_info.appendChild(li_info_a);
-  
-  ul.appendChild(li_share);
-  ul.appendChild(li_info);
-  buttonContainer.appendChild(ul);
-  
-  M.FloatingActionButton.init(buttonContainer , {direction:'bottom', hoverEnabled:'false'} );
   
   // Modal Structure for li_info
   let modalContainer = document.createElement('div');
@@ -286,6 +253,8 @@ function load_new_task(el){
     };
     let task_id = el.getAttribute('data-for');
     let meshes = {};
+    let controller = document.querySelector('a-scene').systems['master-controller'];
+    let inventory_list = controller.get_inventory_list();
     for(let i=0;i<inventory_list.length;i++){
       if(inventory_list[i]['task_id'] === task_id){
         meshes[inventory_list[i]['entity_id']] = inventory_list[i]['mesh_url'];

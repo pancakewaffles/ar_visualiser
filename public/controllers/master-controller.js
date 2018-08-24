@@ -3,12 +3,23 @@ AFRAME.registerSystem('master-controller', {
   init:function(){
     this.meshes_info_list = [];
     this.tasks_info_list = [];
+    this.inventory_list = [];
     this.mid_pts_dict = {};
     this.update_all();
     this.is_something_visible = false;
   },
   is_something_visible:function(){
     return this.is_something_visible;
+  },
+  get_inventory_list:function(){
+    return this.inventory_list;
+  },
+  set_inventory_list:function(list){
+    this.inventory_list = [];
+    for(let i =0;i<list.length;i++){
+      this.inventory_list.push(list[i]);
+    }
+    alert('inventory_list set');
   },
   get_meshes_list:function(){
     return document.querySelectorAll('.mesh');
@@ -151,10 +162,10 @@ AFRAME.registerSystem('master-controller', {
       let el = document.querySelector('#'+this.meshes_info_list[i]['entity_id']);
       if(this.get_visibility(el.getAttribute('id'))){
         let old_pos_x = this.mid_pts_dict[el.getAttribute('id')];
-        console.log("original pos: " + old_pos_x);
+        //console.log("original pos: " + old_pos_x);
         el.object3D.position.set(old_pos_x - xOffset , el.object3D.position.y , el.object3D.position.z);
         let new_pos = el.object3D.position;
-        console.log("new pos: " + new_pos.x);
+        //console.log("new pos: " + new_pos.x);
       }
     }
   },

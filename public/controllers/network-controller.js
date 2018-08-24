@@ -42,14 +42,10 @@ AFRAME.registerSystem('network-controller',{
         this.el.systems['master-controller'].create_entity(task_id,entity_id,mesh_url);
         this.el.systems['master-controller'].set_rotation(task_id,rotation);
         this.el.systems['master-controller'].set_scale(task_id,scale);
-        //this.el.systems['master-controller'].set_scale(task_id+'_boundingbox',scale);
         this.el.systems['master-controller'].set_visibility(entity_id,visible);
       }
-      for(let i = 0;i<data[1].length;i++){ //tasks_info_list
-        let task_info = data[1][i];
-        let task_id = task_info['task_id'];
-        let scale = task_info['scale'];
-      }
+      //inventory_list
+      this.el.systems['master-controller'].set_inventory_list(data[1]);
       console.log('received.');
     });
     
@@ -90,8 +86,8 @@ AFRAME.registerSystem('network-controller',{
           
           console.log('sending stuff to ' + evt.detail.clientId);
           let meshes_info_list = this.el.systems['master-controller'].get_meshes_info_list();
-          let tasks_info_list = this.el.systems['master-controller'].get_tasks_info_list();
-          this.send_info_lists(evt.detail.clientId,[meshes_info_list , tasks_info_list]);
+          let inventory_list = this.el.systems['master-controller'].get_inventory_list();
+          this.send_info_lists(evt.detail.clientId,[meshes_info_list , inventory_list]);
       }
     },
     onclientDisconnected:function(evt){
