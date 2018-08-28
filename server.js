@@ -14,6 +14,23 @@ var port = process.env.PORT || 8080;
 // Setup and configure Express http server. Expect a subfolder called "static" to be the web root.
 var app = express();
 app.use(express.static('public'));
+app.use(express.json());
+
+// routes will go here
+/*
+app.get('/', function(request, response) {
+  var user_id = request.param('id');
+  var token = request.param('token');
+  var geo = request.param('geo');  
+
+  console.log(user_id + ' ' + token + ' ' + geo);
+  
+});
+app.post('/', function(request, response){
+   console.log(request.body);      // your JSON
+   response.send("yah baby it works");    // echo the result back
+});
+*/
 
 // Start Express http server
 var webServer = http.createServer(app).listen(port);

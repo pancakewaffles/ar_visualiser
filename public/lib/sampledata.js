@@ -5,7 +5,6 @@ const inventory_list = [
   {'entity_id':'task2stator1','task_id':'task2','mesh_url':'https://cdn.glitch.com/c8dab513-80c0-4688-93bc-75be8c9abc64%2Ftask2_stator1.prwm?1534412773213'},
 ]
 
-
 /*
   {'entity_id':'task1rotor2','task_id':'task1','mesh_url':'https://cdn.glitch.com/c51b189d-741e-4522-80b2-b61163d8245e%2Ftask1_rotor2.prwm?1532713902151'},
   {'entity_id':'task1stator2','task_id':'task1','mesh_url':'https://cdn.glitch.com/c51b189d-741e-4522-80b2-b61163d8245e%2Ftask1_stator2.prwm?1532713902776'},

@@ -10,7 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "networked-aframe": "latest"
+    "networked-aframe": "latest",
+    "express": "latest"
   },
   "engines": {
     "node": "latest"

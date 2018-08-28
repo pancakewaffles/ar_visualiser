@@ -2,5 +2,5 @@
 window.onload = function(){
   create_settings();
   create_meshes_menu();
-  document.querySelector('a-scene').systems['master-controller'].set_inventory_list(inventory_list);
+  load_inventory_list();
 }
